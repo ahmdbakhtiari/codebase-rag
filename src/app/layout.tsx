@@ -20,7 +20,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex" dir="rtl">
         
         <MainMenu />
-        <main className='flex-1 p-8 bg-black'>
+        <main className='flex-1 p-8 bg-[#263238]'>
           {children}
         </main>
       </body>

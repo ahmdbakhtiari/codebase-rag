@@ -54,7 +54,7 @@ export default function MainMenu() {
 
                     <div>
                         <h1 className="text-base font-bold tracking-tight text-white">
-                            Codebase RAG 
+                            Codebase RAG
                         </h1>
 
                         <p className="text-[10px] font-medium text-white">
@@ -202,22 +202,26 @@ export default function MainMenu() {
             {/* =========================
                 Desktop Sidebar
             ========================== */}
-                 <aside
-    className={`
+            <aside
+                className={`
+        rounded-l-2xl
+        ml-[-15]
+        shadow-2xl
         sticky top-0 hidden h-screen shrink-0
         border-l border-slate-200/10
-        bg-[#263238]
+        bg-[#212121]
         transition-[width] duration-300 ease-in-out
         lg:block
         ${menuOpen ? "w-[280px]" : "w-[70px]"}
     `}
->
-    <div className="flex h-full flex-col overflow-hidden px-3 py-5">
+            >
 
-        {/* Toggle */}
-        <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="
+                <div className="flex h-full  flex-col overflow-hidden px-3 py-5">
+
+                    {/* Toggle */}
+                    <button
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        className="
                 absolute left-4 top-4 z-10
                 flex h-9 w-9 items-center justify-center
                 rounded-lg
@@ -225,32 +229,32 @@ export default function MainMenu() {
                 transition-all
                 hover:bg-white/10
             "
-        >
-            {menuOpen ? (
-                <CloseIcon className='size-10 cursor-pointer' />
-            ) : (
-                <GripIcon className='cursor-pointer' size={32} />
-            )}
-        </button>
+                    >
+                        {menuOpen ? (
+                            <CloseIcon className='size-10 cursor-pointer' />
+                        ) : (
+                            <GripIcon className='cursor-pointer' size={32} />
+                        )}
+                    </button>
 
 
-        {/* Logo */}
-        <Link
-            href="/"
-            dir="rtl"
-            className={`
+                    {/* Logo */}
+                    <Link
+                        href="/"
+                        dir="rtl"
+                        className={`
                 mt-14 flex shrink-0 items-center
                 rounded-xl
                 transition-all duration-300
                 ${menuOpen
-                    ? "gap-3 px-2"
-                    : "justify-center"
-                }
+                                ? "gap-3 px-2"
+                                : "justify-center"
+                            }
             `}
-        >
+                    >
 
-            <div
-                className="
+                        <div
+                            className="
                     flex h-11 w-11 shrink-0
                     items-center justify-center
                     rounded-[14px]
@@ -260,120 +264,120 @@ export default function MainMenu() {
                     transition
                     group-hover:scale-[1.03]
                 "
-            >
-                <ShieldCheck
-                    size={23}
-                    strokeWidth={2.5}
-                />
-            </div>
+                        >
+                            <ShieldCheck
+                                size={23}
+                                strokeWidth={2.5}
+                            />
+                        </div>
 
-            {menuOpen && (
-                <div className="min-w-0">
-                    <h1 className="whitespace-nowrap text-[17px] font-bold tracking-tight text-white">
-                        Codebase RAG
-                    </h1>
+                        {menuOpen && (
+                            <div className="min-w-0">
+                                <h1 className="whitespace-nowrap text-[17px] font-bold tracking-tight text-white">
+                                    Codebase RAG
+                                </h1>
 
-                    <p className="mt-0.5 whitespace-nowrap text-[10px] font-semibold tracking-wide text-white">
-                        هوش مصنوعی پیش بینی سهام
-                    </p>
-                </div>
-            )}
+                                <p className="mt-0.5 whitespace-nowrap text-[10px] font-semibold tracking-wide text-white">
+                                    هوش مصنوعی پیش بینی سهام
+                                </p>
+                            </div>
+                        )}
 
-        </Link>
-
-
-        {/* Divider */}
-        <div className="my-7 h-px shrink-0 bg-gradient-to-r from-transparent via-slate-400/30 to-transparent" />
+                    </Link>
 
 
-        {/* Navigation Label */}
-        {menuOpen && (
-            <div className="mb-3 px-2">
-                <p className="text-right text-[10px] font-bold tracking-[0.18em] text-white/60">
-                    منو اصلی
-                </p>
-            </div>
-        )}
+                    {/* Divider */}
+                    <div className="my-7 h-px shrink-0 bg-gradient-to-r from-transparent via-slate-400/30 to-transparent" />
 
 
-        {/* Navigation */}
-        <nav className="space-y-1.5">
+                    {/* Navigation Label */}
+                    {menuOpen && (
+                        <div className="mb-3 px-2">
+                            <p className="text-right text-[10px] font-bold tracking-[0.18em] text-white/60">
+                                منو اصلی
+                            </p>
+                        </div>
+                    )}
 
-            {navigation.map((item) => {
-                const Icon = item.icon;
 
-                const isActive =
-                    pathname === item.href ||
-                    (item.href !== "/" &&
-                        pathname.startsWith(item.href));
+                    {/* Navigation */}
+                    <nav className="space-y-1.5">
 
-                return (
-                    <Link
-                        key={item.href}
-                        href={item.href}
-                        dir="rtl"
-                        title={!menuOpen ? item.name : undefined}
-                        className={`
+                        {navigation.map((item) => {
+                            const Icon = item.icon;
+
+                            const isActive =
+                                pathname === item.href ||
+                                (item.href !== "/" &&
+                                    pathname.startsWith(item.href));
+
+                            return (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    dir="rtl"
+                                    title={!menuOpen ? item.name : undefined}
+                                    className={`
                             group relative flex h-11
                             items-center rounded-xl
                             transition-all duration-200
                             ${menuOpen
-                                ? "gap-3 px-3.5"
-                                : "justify-center"
-                            }
+                                            ? "gap-3 px-3.5"
+                                            : "justify-center"
+                                        }
                             ${isActive
-                                ? "bg-white/10"
-                                : "hover:bg-white/10"
-                            }
+                                            ? "bg-white/10"
+                                            : "hover:bg-white/10"
+                                        }
                         `}
-                    >
+                                >
 
-                        {/* Active Indicator */}
-                        {isActive && (
-                            <span className="
+                                    {/* Active Indicator */}
+                                    {isActive && (
+                                        <span className="
                                 absolute right-0
                                 h-6 w-1
                                 rounded-l-full
                                 bg-cyan-400
                             " />
-                        )}
+                                    )}
 
 
-                        {/* Icon */}
-                        <Icon
-                            size={19}
-                            strokeWidth={2}
-                            className={`
+                                    {/* Icon */}
+                                    <Icon
+                                        size={19}
+                                        strokeWidth={2}
+                                        className={`
                                 shrink-0 transition-colors
                                 ${isActive
-                                    ? "text-cyan-400"
-                                    : "text-cyan-700 group-hover:text-cyan-400"
-                                }
+                                                ? "text-cyan-400"
+                                                : "text-cyan-700 group-hover:text-cyan-400"
+                                            }
                             `}
-                        />
+                                    />
 
 
-                        {/* Text */}
-                        {menuOpen && (
-                            <span className="whitespace-nowrap text-right text-[13px] font-semibold text-white">
-                                {item.name}
-                            </span>
-                        )}
+                                    {/* Text */}
+                                    {menuOpen && (
+                                        <span className="whitespace-nowrap text-right text-[13px] font-semibold text-white">
+                                            {item.name}
+                                        </span>
+                                    )}
 
-                    </Link>
-                );
-            })}
+                                </Link>
+                            );
+                        })}
 
-        </nav>
-
-
-        {/* Spacer */}
-        <div className="flex-1" />
+                    </nav>
 
 
-        {/* AI Model Status */}
-        {menuOpen ? (
-            <div className="
+                    {/* Spacer */}
+                    <div className="flex-1" />
+
+
+                    {/* AI Model Status */}
+                    {menuOpen ? (
+                        <div className="
                 relative shrink-0
                 overflow-hidden
                 rounded-2xl
@@ -382,8 +386,8 @@ export default function MainMenu() {
                 shadow-xl
             ">
 
-                {/* Glow */}
-                <div className="
+                            {/* Glow */}
+                            <div className="
                     pointer-events-none
                     absolute -right-8 -top-8
                     h-24 w-24
@@ -392,35 +396,35 @@ export default function MainMenu() {
                     blur-2xl
                 " />
 
-                <div className="relative">
+                            <div className="relative">
 
-                    <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-3">
 
-                        <div className="
+                                    <div className="
                             flex h-9 w-9 shrink-0
                             items-center justify-center
                             rounded-xl
                             bg-blue-600
                             text-white
                         ">
-                            <Brain size={18} />
-                        </div>
+                                        <Brain size={18} />
+                                    </div>
 
-                        <div>
-                            <p className="text-[13px] font-bold text-white">
-                                مدل هوش مصنوعی
-                            </p>
+                                    <div>
+                                        <p className="text-[13px] font-bold text-white">
+                                            مدل هوش مصنوعی
+                                        </p>
 
-                            <p className="mt-0.5 text-[10px] font-medium text-slate-500">
-                                موتور پیش بینی سهام
-                            </p>
-                        </div>
+                                        <p className="mt-0.5 text-[10px] font-medium text-slate-500">
+                                            موتور پیش بینی سهام
+                                        </p>
+                                    </div>
 
-                    </div>
+                                </div>
 
 
-                    {/* Status */}
-                    <div className="
+                                {/* Status */}
+                                <div className="
                         mt-4 flex items-center
                         justify-between
                         rounded-xl
@@ -429,11 +433,11 @@ export default function MainMenu() {
                         px-3 py-2.5
                     ">
 
-                        <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-2">
 
-                            <span className="relative flex h-2 w-2">
+                                        <span className="relative flex h-2 w-2">
 
-                                <span className="
+                                            <span className="
                                     absolute inline-flex
                                     h-full w-full
                                     animate-ping
@@ -442,41 +446,41 @@ export default function MainMenu() {
                                     opacity-60
                                 " />
 
-                                <span className="
+                                            <span className="
                                     relative inline-flex
                                     h-2 w-2
                                     rounded-full
                                     bg-emerald-400
                                 " />
 
-                            </span>
+                                        </span>
 
-                            <span className="text-[10px] font-medium text-slate-300">
-                                اپراتور سیستم
-                            </span>
+                                        <span className="text-[10px] font-medium text-slate-300">
+                                            اپراتور سیستم
+                                        </span>
 
-                        </div>
+                                    </div>
 
-                        <span className="
+                                    <span className="
                             text-[9px]
                             font-bold
                             uppercase
                             tracking-wider
                             text-emerald-400
                         ">
-                            آنلاین
-                        </span>
+                                        آنلاین
+                                    </span>
 
-                    </div>
+                                </div>
 
-                </div>
+                            </div>
 
-            </div>
-        ) : (
-            /* Collapsed AI Icon */
-            <div
-                title="مدل هوش مصنوعی"
-                className="
+                        </div>
+                    ) : (
+                        /* Collapsed AI Icon */
+                        <div
+                            title="مدل هوش مصنوعی"
+                            className="
                     flex h-11 w-11
                     shrink-0
                     self-center
@@ -486,13 +490,13 @@ export default function MainMenu() {
                     text-white
                     shadow-lg shadow-blue-600/20
                 "
-            >
-                <Brain size={19} />
-            </div>
-        )}
+                        >
+                            <Brain size={19} />
+                        </div>
+                    )}
 
-    </div>
-</aside>
+                </div>
+            </aside>
 
         </>
     )
