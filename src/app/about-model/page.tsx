@@ -3,15 +3,17 @@ import React from 'react'
 
 export default function Page() {
     return (
-        <section className="relative mt-10 flex min-h-screen items-center justify-center overflow-hidden px-4">
+        <section className="relative mt-4 flex min-h-screen items-center justify-center overflow-hidden px-4">
 
             {/* AI Model */}
             <Image
-                className="animate-float
+                className="
+                    animate-float
                     w-[280px]
                     sm:w-[380px]
                     md:w-[480px]
-                    lg:w-[600px]"
+                    lg:w-[600px]
+                "
                 alt="AI Model"
                 src="/aiModel1.png"
                 height={600}
@@ -37,9 +39,12 @@ export default function Page() {
                     sm:px-5 sm:py-4
 
                     md:left-16
-
                     lg:left-20
                 "
+                style={{
+                    animationDelay: '0s',
+                    animationDuration: '4s',
+                }}
             >
                 <p className="mb-1 text-[10px] uppercase tracking-widest text-blue-400 sm:text-xs">
                     Model
@@ -68,9 +73,12 @@ export default function Page() {
                     sm:px-5 sm:py-4
 
                     md:right-20
-
                     lg:right-40
                 "
+                style={{
+                    animationDelay: '1.2s',
+                    animationDuration: '4.7s',
+                }}
             >
                 <p className="mb-1 text-[10px] uppercase tracking-widest text-purple-400 sm:text-xs">
                     Parameters
@@ -99,9 +107,12 @@ export default function Page() {
                     sm:px-5 sm:py-4
 
                     md:bottom-32 md:left-24
-
                     lg:bottom-40 lg:left-40
                 "
+                style={{
+                    animationDelay: '2.1s',
+                    animationDuration: '3.6s',
+                }}
             >
                 <p className="mb-1 text-[10px] uppercase tracking-widest text-cyan-400 sm:text-xs">
                     Task
@@ -130,9 +141,12 @@ export default function Page() {
                     sm:px-5 sm:py-4
 
                     md:bottom-32 md:right-20
-
                     lg:bottom-40 lg:right-30
                 "
+                style={{
+                    animationDelay: '0.6s',
+                    animationDuration: '5.2s',
+                }}
             >
                 <p className="mb-1 text-[10px] uppercase tracking-widest text-indigo-400 sm:text-xs">
                     Framework
