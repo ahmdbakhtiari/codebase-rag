@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Send, Paperclip } from "lucide-react";
-import { Spinner, TextArea } from "@heroui/react";
+import { Input, Spinner, TextArea } from "@heroui/react";
 import { postMessageInChat } from "../actions/action";
 
 type Message = {
@@ -89,11 +89,8 @@ export default function ChatInput() {
         )}px`;
     };
 
-    const handleAttach = () => {
-        fileInputRef.current?.click();
-    };
 
-    const handleFileChange = (
+    const handleFileChange =  (
         e: React.ChangeEvent<HTMLInputElement>
     ) => {
         const file = e.target.files?.[0];
@@ -101,8 +98,10 @@ export default function ChatInput() {
         if (!file) return;
 
         setSelectedFile(file);
+        console.log('file :>> ', file);
+        // const content = await file.text();
 
-        console.log("Attached file:", file);
+        // console.log("file content:", content);
     };
 
     return (
@@ -328,32 +327,7 @@ export default function ChatInput() {
                 />
 
                 <div>
-                    <button
-                        type="button"
-                        onClick={handleAttach}
-                        className="
-                        flex
-                        h-9
-                        w-9
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-xl
-                        text-white/60
-                        transition-all
-                        hover:bg-white/10
-                        hover:text-white
-                        active:scale-95
-                        sm:h-10
-                        sm:w-10
-                    "
-                        title="Attach file"
-                    >
-                        <Paperclip size={19} />
-                    </button>
-
-                    {/* Send */}
-
+             
                     <button
                         type="button"
                         onClick={handleSend}
